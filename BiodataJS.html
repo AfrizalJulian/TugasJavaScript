@@ -1,0 +1,131 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Welcome to My Biodata</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            background-color: #f2f2f2;
+            margin: 0;
+            padding: 0;
+        }
+
+        header {
+            background-color: #333;
+            color: white;
+            text-align: center;
+            padding: 20px;
+        }
+
+        .container {
+            width: 65%;
+            margin: 0 auto;
+            background-color: #fff;
+            padding: 20px;
+            box-shadow: 0 0 10px rgba(0, 0, 0, 0.2);
+            border-radius: 5px;
+        }
+
+        label {
+            font-weight: bold;
+        }
+
+        p {
+            margin: 0;
+        }
+
+        .biodata {
+            margin-top: 20px;
+        }
+
+        .contact {
+            margin-top: 20px;
+        }
+
+        .contact a {
+            text-decoration: none;
+            color: #333;
+            font-weight: bold;
+        }
+
+        .contact a:hover {
+            color: #555;
+        }
+
+        .right {
+            flex: 1;
+            text-align: right;
+        }
+
+        .foto {
+            float: right;
+            width: 200px;
+            margin-left: 20px;
+            border-radius: 50px;
+            box-shadow: 0 0 5px rgba(0, 0, 0, 0.2);
+        }
+
+    </style>
+</head>
+<body>
+    <header>
+        <h1>Biodata Saya</h1>
+    </header>
+    <div class="container">
+        <div class="biodata">
+            <div class="right">
+                <img class= "foto" src="c:\Users\ASUS\Downloads\WhatsApp Image 2023-09-06 at 16.29.29.jpeg" alt="Foto Profil">
+            </div>
+            <label for="nama">Nama:</label>
+            <p id="nama">Afrizal Julianur</p>
+
+            <label for="nomorHP">Nomor HP:</label>
+            <p id="nomorHP">087781161824</p>
+
+            <label for="alamat">Alamat:</label>
+            <p id="alamat">Jl.SIRSAK GG KOPI RT 009/04 CIGANJUR, JAGAKARSA. JAKARTA SELATAN</p>
+
+            <label for="jenisKelamin">Jenis Kelamin:</label>
+            <p id="jenisKelamin">Laki-laki</p>
+
+            <label for="umur">Umur:</label>
+            <p id="umur">20 tahun</p>
+
+            <label for="keahlian">Keahlian:</label>
+            <p id="keahlian">Network Engineer</p>
+
+            <label for="email">Email:</label>
+            <p id="email">afrizalwalker@gmail.com</p>
+
+            <div class="contact">
+                <label>Hubungi Saya:</label>
+                <p><a href="https://www.instagram.com/jalltzy_/" target="_blank">Instagram</a></p>
+            </div>
+        </div>
+    </div>
+
+    <script>
+        // Simpan data biodata dalam variabel JavaScript
+        const biodata = {
+            nama: "Afrizal Julianur",
+            nomorHP: "087781161824",
+            alamat: "Jl.SIRSAK GG KOPI RT 009/04 CIGANJUR, JAGAKARSA. JAKARTA SELATAN",
+            jenisKelamin: "Laki-laki",
+            umur: "20 tahun",
+            keahlian: "Network Engineer",
+            email: "afrizalwalker@gmail.com"
+        };
+
+        // Setel data biodata ke elemen HTML
+        document.getElementById("nama").textContent = biodata.nama;
+        document.getElementById("nomorHP").textContent = biodata.nomorHP;
+        document.getElementById("alamat").textContent = biodata.alamat;
+        document.getElementById("jenisKelamin").textContent = biodata.jenisKelamin;
+        document.getElementById("umur").textContent = biodata.umur;
+        document.getElementById("keahlian").textContent = biodata.keahlian;
+        document.getElementById("email").textContent = biodata.email;
+    </script>
+</body>
+</html>
