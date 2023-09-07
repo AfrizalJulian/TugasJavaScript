@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Menghitung Gaji Pegawai yang Bernama Ridwan</title>
+</head>
+<body>
+    <h1>Data Pegawai</h1>
+    <p>Nama Pegawai: Ridwan</p>
+    <p>Jabatan: Manager</p>
+    <p>Status: Menikah</p>
+
+    <h2>Gaji</h2>
+    <p>Gaji Pokok: Rp. 15.000.000</p>
+
+    <h2>Tunjangan</h2>
+    <p>Tunjangan Jabatan: Rp. 2.250.000</p> <!-- 15% dari gapok -->
+    <p>BPJS: Rp. 1.500.000</p> <!-- 10% dari gapok -->
+    <p>Tunjangan Keluarga: Rp. 3.000.000</p> <!-- 20% dari gapok -->
+
+    <h2>Total Gaji (dari keseluruhan total elemen)</h2>
+    <script>
+        // Data Pegawai
+        var namaPegawai = "Ridwan";
+        var jabatan = "Manager";
+        var status = "Menikah";
+        var gajiPokok;
+
+        // Menghitung Gaji Pokok berdasarkan jabatan
+        if (jabatan === "Manager") {
+            gajiPokok = 15000000;
+        } else if (jabatan === "Asisten Manager") {
+            gajiPokok = 10000000;
+        } else if (jabatan === "Staff") {
+            gajiPokok = 5000000;
+        }
+
+        // Menghitung Tunjangan Jabatan
+        var tunjanganJabatan = 0.15 * gajiPokok;
+
+        // Menghitung BPJS
+        var bpjs = 0.10 * gajiPokok;
+
+        // Menghitung Tunjangan Keluarga
+        var tunjanganKeluarga = status === "Menikah" ? 0.20 * gajiPokok : 0;
+
+        // Menghitung Total Gaji
+        var totalGaji = gajiPokok + tunjanganJabatan + bpjs + tunjanganKeluarga;
+
+        // Menampilkan Total Gaji
+        document.write("Total Gaji: Rp. " + totalGaji);
+    </script>
+</body>
+</html>
