@@ -1,0 +1,121 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <title>Tugas 3 JavaScript</title>
+    </head>
+<head>
+<style>
+    .container {
+        text-align: center; 
+        padding-top: 0; 
+    }
+</style>
+  <style>
+    table {
+      width: 100%;
+      border-collapse: collapse;
+    }
+
+    table, th, td {
+      border: 1px solid black;
+      text-align: center;
+    }
+
+    th, td {
+      padding: 8px;
+    }
+
+    tr:nth-child(odd) {
+      background-color: yellow;
+    }
+
+    tr:nth-child(even) {
+      background-color: blue;
+    }
+  </style>
+</head>
+<body>
+    <div class="container">
+        <h1>Tabel Pembagian Gaji Masing-masing Pegawai</h1>
+    </div>
+<table>
+  <tr>
+    <th>Nama Pegawai</th>
+    <th>Jabatan</th>
+    <th>Gapok</th>
+    <th>Tunjangan Jabatan</th>
+    <th>Tunjangan Kesehatan</th>
+    <th>Gaji Kotor</th>
+    <th>Agama</th>
+    <th>Zakat Profesi</th>
+    <th>Take Home Pay</th>
+  </tr>
+
+  <script>
+    function calculateSalary(pegawaiIndex) {
+      let jabatan;
+      let gapok;
+
+      switch (pegawaiIndex) {
+        case 1:
+        case 2:
+          jabatan = "Manager";
+          gapok = 15000000;
+          break;
+        case 3:
+        case 4:
+        case 5:
+          jabatan = "Asisten Manager";
+          gapok = 10000000;
+          break;
+        case 6:
+        case 7:
+        case 8:
+          jabatan = "Supervisor";
+          gapok = 7000000;
+          break;
+        case 9:
+        case 10:
+          jabatan = "Staff";
+          gapok = 4000000;
+          break;
+        default:
+          jabatan = "Tidak Diketahui";
+          gapok = 0;
+          break;
+      }
+
+      const tunjanganJabatan = 0.2 * gapok;
+      const tunjanganKesehatan = 0.1 * gapok;
+      const gajiKotor = gapok + tunjanganJabatan + tunjanganKesehatan;
+
+      const agama = (pegawaiIndex % 2 === 1) ? "Muslim" : "Non Muslim";
+      const isMuslimAndHighSalary = (agama === "Muslim" && gajiKotor >= 7000000);
+      const zakatProfesi = isMuslimAndHighSalary ? 0.025 * gajiKotor : 0;
+      const takeHomePay = gajiKotor - zakatProfesi;
+
+      return [jabatan, gapok, tunjanganJabatan, tunjanganKesehatan, gajiKotor, agama, zakatProfesi, takeHomePay];
+    }
+
+    for (let i = 1; i <= 10; i++) {
+      const pegawaiIndex = i;
+      const pegawai = `Pegawai${pegawaiIndex}`;
+      const salaryInfo = calculateSalary(pegawaiIndex);
+
+      document.write("<tr>");
+      document.write(`<td>${pegawai}</td>`);
+      document.write(`<td>${salaryInfo[0]}</td>`);
+      document.write(`<td>${salaryInfo[1]}</td>`);
+      document.write(`<td>${salaryInfo[2]}</td>`);
+      document.write(`<td>${salaryInfo[3]}</td>`);
+      document.write(`<td>${salaryInfo[4]}</td>`);
+      document.write(`<td>${salaryInfo[5]}</td>`);
+      document.write(`<td>${salaryInfo[6]}</td>`);
+      document.write(`<td>${salaryInfo[7]}</td>`);
+      document.write("</tr>");
+    }
+  </script>
+</table>
+
+</body>
+</html>
