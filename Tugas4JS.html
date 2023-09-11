@@ -1,0 +1,82 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Form Toko Online</title>
+</head>
+<body>
+    <h1>Toko Online Rizal</h1>
+    <form id="tokoForm">
+        <label for="nama">Nama Pelanggan:</label>
+        <input type="text" id="nama" name="nama"><br><br>
+        
+        <label for="produk">Pilih Produk:</label>
+        <select id="produk" name="produk">
+            <option value="TV">TV</option>
+            <option value="AC">AC</option>
+            <option value="Kulkas">Kulkas</option>
+        </select><br><br>
+        
+        <label for="jumlah">Jumlah Item Produk:</label>
+        <input type="number" id="jumlah" name="jumlah" min="1"><br><br>
+        
+        <input type="button" value="Beli" id="proses" name="proses" onclick="transaksi()">
+    </form>
+
+    <script>
+        function transaksi() {
+            // Ambil nilai input dari form
+            var nama = document.getElementById("nama").value;
+            var produk = document.getElementById("produk").value;
+            var jumlah = parseInt(document.getElementById("jumlah").value);
+
+            // Inisialisasi variabel harga dan diskon
+            var harga = 0;
+            var diskon = 0;
+
+            // Hitung harga produk menggunakan switch case
+            switch (produk) {
+                case "TV":
+                    harga = 2000000;
+                    break;
+                case "AC":
+                    harga = 3000000;
+                    break;
+                case "Kulkas":
+                    harga = 4000000;
+                    break;
+                default:
+                    alert("Produk tidak valid");
+                    return;
+            }
+
+            // Hitung harga kotor
+            var hargaKotor = harga * jumlah;
+
+            // Hitung diskon
+            if (produk === "Kulkas" && jumlah >= 3) {
+                diskon = 0.3 * hargaKotor;
+            } else if (produk === "AC" && jumlah >= 3) {
+                diskon = 0.2 * hargaKotor;
+            } else {
+                diskon = 0.1 * hargaKotor;
+            }
+
+            // Hitung PPN
+            var ppn = 0.1 * (hargaKotor - diskon);
+
+            // Hitung harga bayar
+            var hargaBayar = (hargaKotor - diskon) + ppn;
+
+            // Tampilkan hasil menggunakan alert
+            alert("Nama Pelanggan: " + nama +
+                  "\nProduk yang dibeli: " + produk +
+                  "\nHarga Satuan: " + harga +
+                  "\nJumlah Item Produk: " + jumlah +
+                  "\nHarga Kotor: " + hargaKotor +
+                  "\nDiskon: " + diskon +
+                  "\nPPN: " + ppn +
+                  "\nHarga Bayar: " + hargaBayar);
+        }
+    </script>
+</body>
+</html>
