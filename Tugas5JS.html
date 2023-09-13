@@ -1,0 +1,54 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Informasi Gempa</title>
+</head>
+<body>
+    <h1>Informasi Gempa yang ada di seluruh penjuru Dunia</h1>
+    <button onclick="tampilkanInformasi(gempa1)">Pilih Gempa 1</button>
+    <button onclick="tampilkanInformasi(gempa2)">Pilih Gempa 2</button>
+    <button onclick="tampilkanInformasi(gempa3)">Pilih Gempa 3</button>
+    <button onclick="tampilkanInformasi(gempa4)">Pilih Gempa 4</button>
+    <button onclick="tampilkanInformasi(gempa5)">Pilih Gempa 5</button>
+    <div id="gempa-info"></div>
+
+    <script>
+        class Gempa {
+            constructor(lokasi, skala) {
+                this.lokasi = lokasi;
+                this.skala = skala;
+            }
+
+            dampak() {
+                if (this.skala >= 0 && this.skala <= 2) {
+                    return "Tidak terasa";
+                } else if (this.skala > 2 && this.skala <= 4) {
+                    return "Bangunan retak-retak";
+                } else if (this.skala > 4 && this.skala <= 6) {
+                    return "Bangunan roboh";
+                } else {
+                    return "Bangunan roboh dan berpotensi tsunami";
+                }
+            }
+        }
+
+        // Membuat 5 informasi Gempa dari berbagai penjuru dunia
+        const gempa1 = new Gempa("Indonesia", 1.5);
+        const gempa2 = new Gempa("Chile", 3.8);
+        const gempa3 = new Gempa("Jepang", 5.9);
+        const gempa4 = new Gempa("Alaska", 6.5);
+        const gempa5 = new Gempa("Italia", 7.2);
+
+        // Untuk menampilkan informasi Gempa yang dipilih
+        function tampilkanInformasi(gempa) {
+            const gempaInfo = document.getElementById('gempa-info');
+            gempaInfo.innerHTML = `<h2>Informasi Gempa yang Dipilih</h2>
+            <strong>Lokasi Gempa:</strong> ${gempa.lokasi}<br>
+            <strong>Skala:</strong> ${gempa.skala}<br>
+            <strong>Dampak:</strong> ${gempa.dampak()}`;
+        }
+    </script>
+</body>
+</html>
