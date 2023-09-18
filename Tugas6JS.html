@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <title>Tentang Saya</title>
+  <script src="https://code.jquery.com/jquery-3.7.1.min.js"></script>
+</head>
+<body>
+  <h1>Silahkan Pilih :</h1>
+  <ul>
+    <li id="Profile">Profile</li>
+    <li id="Moto">Moto Hidup</li>
+    <li id="Keahlian">Keahlian</li>
+  </ul>
+
+  <div id="content">
+    <!-- Tempat data akan ditampilkan di sini -->
+  </div>
+
+  <script>
+    $(document).ready(function() {
+      // Event handler untuk mouse klik pada pilihan bidang
+      $("#Profile").click(function() {
+        $("#content").html("<h2>Profile Saya</h2><p>Ini adalah profile pribadi saya :</p><p> Nama : Afrizal Julianur</p><p>Tempat/tgl lahir : Jakarta 15 Juli 2003</p><p>Alamat : JL.SIRSAK Gang Kopi No.73 RT 009/04 Ciganjur.Jagakarsa.Jakarta Selatan</p><p>Hobby : Futsal dan Bermain Game</p>");
+      });
+
+      $("#Moto").click(function() {
+        $("#content").html("<h2>Moto Hidup</h2><p>Moto hidup saya adalah Jangan patah semangat, terus berjuang menghadapi rintangan-rintangan se sulit apapun yang ada dihadapan saya, dan terus belajar</p>Alasan saya adalah Agar Saya menjadi manusia yang sabar,tegar dan berIlmu, ingat!!! ALLAH itu tidak tidur IA mengetahui batas-batas yang dimiliki oleh hambanya.</p>");
+      });
+
+      $("#Keahlian").click(function() {
+        $("#content").html("<h2>Keahlian</h2><p>Saya memiliki keahlian dalam Membikin web, Software Application, dan Saya juga ahli dalam Network Engineering karena basic Saya di SMK pada jurusan TKJ</p>Memiliki pengalaman di Jaringan pada aplikasi Cisco Packet Traser dan pada aplikasi Java</p>");
+      });
+    });
+  </script>
+</body>
+</html>
